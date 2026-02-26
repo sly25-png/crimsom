@@ -24,6 +24,7 @@ def keep_alive():
     t.daemon = True
     t.start()
 
+
 # ----------------------------
 # IDS RÔLES BLOODS
 # ----------------------------
