@@ -6,6 +6,22 @@ import os
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix="!", intents=intents)
 
+app = Flask('')
+
+@app.route('/')
+def home():
+    return "Bot is alive!"
+
+def run_flask():
+    # Render.com utilise la variable d'environnement PORT
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
+
+def keep_alive():
+    t = threading.Thread(target=run_flask)
+    t.daemon = True
+    t.start()
+
 # ----------------------------
 # IDS RÔLES BLOODS
 # ----------------------------
