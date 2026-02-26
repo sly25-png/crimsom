@@ -2,6 +2,8 @@ import discord
 from discord.ext import commands
 from discord import app_commands, ui
 import os
+from flask import Flask
+import threading
 
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix="!", intents=intents)
@@ -289,7 +291,7 @@ async def warns_list(interaction: discord.Interaction):
 
 TOKEN = os.getenv("DISCORD_TOKEN")
 if TOKEN:
-
+    keep_alive()
     bot.run(TOKEN)
 else:
     print("❌ ERREUR : Le token n'est pas défini dans les variables d'environnement (DISCORD_TOKEN).")
