@@ -270,11 +270,10 @@ async def warns_list(interaction: discord.Interaction):
 # ----------------------------
 # RUN
 # ----------------------------
-from keep_alive import keep_alive
 
 TOKEN = os.getenv("DISCORD_TOKEN")
 if TOKEN:
-    keep_alive()
+
     bot.run(TOKEN)
 else:
     print("❌ ERREUR : Le token n'est pas défini dans les variables d'environnement (DISCORD_TOKEN).")
